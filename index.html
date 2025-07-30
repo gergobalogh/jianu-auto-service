@@ -83,6 +83,17 @@
             overflow: hidden;
         }
 
+        .hero-background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1920x1080?text=Professional+Auto+Service') no-repeat center center/cover;
+            filter: brightness(0.6); /* Darken the image for text readability */
+            z-index: 1;
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -92,6 +103,7 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
             animation: float 20s ease-in-out infinite;
+            z-index: 2; /* Ensure grain is above the image but below content */
         }
 
         @keyframes float {
@@ -415,6 +427,7 @@
 
 <!-- Hero Section -->
 <section id="home" class="hero">
+    <div class="hero-background-image"></div>
     <div class="hero-content">
         <h1>Jianu&company</h1>
         <p>Service auto profesional în Motăței - Dolj<br>Expertiză, calitate și încredere pentru vehiculul tău</p>
@@ -480,11 +493,7 @@
                 </ul>
             </div>
             <div class="about-image fade-in">
-                <div style="background: rgba(255,255,255,0.1); padding: 3rem; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 6rem; margin-bottom: 1rem;">🏆</div>
-                    <h3 style="color: #007bff; margin-bottom: 1rem;">Calitate garantată</h3>
-                    <p>Fiecare vehicul este tratat cu aceeași atenție și profesionalism, indiferent de marca sau modelul acestuia.</p>
-                </div>
+                <img src="https://via.placeholder.com/500x300?text=Our+Workshop" alt="Our Workshop" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
             </div>
         </div>
     </div>
