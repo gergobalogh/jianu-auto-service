@@ -83,6 +83,17 @@
             overflow: hidden;
         }
 
+        .hero-background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('car.jpg') no-repeat center center/cover;
+            filter: brightness(0.6); /* Darken the image for text readability */
+            z-index: 1;
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -92,6 +103,7 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
             animation: float 20s ease-in-out infinite;
+            z-index: 2; /* Ensure grain is above the image but below content */
         }
 
         @keyframes float {
@@ -106,13 +118,13 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
             animation: slideInUp 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             opacity: 0.9;
             animation: slideInUp 1s ease-out 0.3s both;
@@ -132,8 +144,8 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
         }
 
         @keyframes slideInUp {
@@ -201,17 +213,14 @@
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
-        .service-icon {
-            font-size: 3rem;
+        .service-icon-img {
+            width: 64px;
+            height: 64px;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #007bff, #0056b3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         /* About */
@@ -278,6 +287,7 @@
             background: #f8f9fa;
             border-radius: 10px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .contact-item:hover {
@@ -415,6 +425,7 @@
 
 <!-- Hero Section -->
 <section id="home" class="hero">
+    <div class="hero-background-image"></div>
     <div class="hero-content">
         <h1>Jianu&company</h1>
         <p>Service auto profesional în Motăței - Dolj<br>Expertiză, calitate și încredere pentru vehiculul tău</p>
@@ -428,32 +439,32 @@
         <h2 class="section-title">Serviciile noastre</h2>
         <div class="services-grid">
             <div class="service-card fade-in">
-                <div class="service-icon">🔧</div>
+                <img src="photo-tools.jpeg" alt="Repair Icon" class="service-icon-img">
                 <h3>Reparații Generale</h3>
                 <p>Diagnosticare și reparații complete pentru toate tipurile de vehicule. Echipa noastră experimentată utilizează echipamente moderne pentru a identifica și rezolva rapid problemele.</p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">⚙️</div>
+                <img src="photo-tools.jpeg" alt="Maintenance Icon" class="service-icon-img">
                 <h3>Întreținere Periodică</h3>
                 <p>Schimburi de ulei, filtre, revizie tehnică completă. Menținem vehiculul tău în stare optimă de funcționare pentru o siguranță maximă pe drum.</p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">🔍</div>
+                <img src="photo-tools.jpeg" alt="Diagnostic Icon" class="service-icon-img">
                 <h3>Diagnosticare Computerizată</h3>
                 <p>Analiză computerizată avansată pentru identificarea precisă a problemelor. Utilizăm cele mai noi tehnologii pentru un diagnostic rapid și exact.</p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">🚗</div>
+                <img src="car.jpg" alt="Bodywork Icon" class="service-icon-img">
                 <h3>Reparații Caroserie</h3>
                 <p>Servicii complete de tinichigerie și vopsitorie. Redăm vehiculului tău aspectul original cu materiale de calitate superioară.</p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">🛞</div>
+                <img src="car.jpg" alt="Tires Icon" class="service-icon-img">
                 <h3>Anvelope și Jante</h3>
                 <p>Montare, echilibrare și vânzare anvelope. Oferim consiliere specializată pentru alegerea celor mai potrivite anvelope pentru vehiculul tău.</p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">⚡</div>
+                <img src="car.jpg" alt="Electrical Icon" class="service-icon-img">
                 <h3>Instalații Electrice</h3>
                 <p>Reparații și întreținere instalații electrice auto. De la probleme simple la sisteme complexe, rezolvăm orice defecțiune electrică.</p>
             </div>
@@ -480,11 +491,7 @@
                 </ul>
             </div>
             <div class="about-image fade-in">
-                <div style="background: rgba(255,255,255,0.1); padding: 3rem; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 6rem; margin-bottom: 1rem;">🏆</div>
-                    <h3 style="color: #007bff; margin-bottom: 1rem;">Calitate garantată</h3>
-                    <p>Fiecare vehicul este tratat cu aceeași atenție și profesionalism, indiferent de marca sau modelul acestuia.</p>
-                </div>
+                <img src="photo-tools.jpeg" alt="Our Workshop" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
             </div>
         </div>
     </div>
